@@ -7,7 +7,7 @@ from . import commands
 
 
 class LazyCLI(click.MultiCommand):
-    '''Lazily imports interfaces from wanderer.commands package.'''
+    '''Lazily imports interfaces from cgutils.commands package.'''
 
     def list_commands(self, ctx):
         cmds = [cmd for cmd in dir(commands) if not cmd.startswith('__')]
@@ -21,7 +21,7 @@ class LazyCLI(click.MultiCommand):
 @click.group(cls=LazyCLI)
 @click.pass_context
 def cli(ctx):
-    '''Wanderer Command Line Tools'''
+    '''Command Line Tools for common tasks'''
     pass
 
 
