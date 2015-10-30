@@ -9,6 +9,26 @@ CG Utils
         :target: https://pypi.python.org/pypi/cgutils
 
 
+Commands
+========
+
+* sequences: Create, Rename, Delete file sequences
+* search_replace: Search and replace patterns in file names
+
+
+Call cgutils from a shell to get going::
+
+    cgutils
+
+
+Installation
+============
+
+::
+
+    pip install cgutils
+
+
 CLI for common tasks
 
-* Documentation: https://cgutils.readthedocs.org.
+* Documentation: https://cgutils.readthedocs.org. **coming soon**
