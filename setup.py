@@ -3,8 +3,23 @@
 
 import re
 from setuptools import setup, find_packages
-import os
+import shutil
+from subprocess import check_call
 import sys
+
+
+if sys.argv[-1] == 'cheeseit!':
+    try:
+        check_call('python setup.py sdist bdist_wheel')
+        check_call('twine upload dist/*')
+    finally:
+        shutil.rmtree('dist')
+        shutil.rmtree('build')
+        shutil.rmtree('mtoatools.egg-info')
+    sys.exit()
+elif sys.argv[-1] == 'testit!':
+    check_call('python setup.py sdist bdist_wheel upload -r pypitest')
+    sys.exit()
 
 
 def get_info(pyfile):
@@ -20,16 +35,9 @@ def get_info(pyfile):
 
     return info
 
+
 info = get_info('cgutils/__init__.py')
 
-
-if sys.argv[-1] == 'cheeseit!':
-    os.system('python setup.py sdist upload')
-    sys.exit()
-
-elif sys.argv[-1] == 'testit!':
-    os.system('python setup.py sdist upload -r pypitest')
-    sys.exit()
 
 with open("README.rst") as f:
     readme = f.read()
@@ -61,4 +69,5 @@ setup(
         [console_scripts]
         cgutils=cgutils.__main__:cli
     ''',
+    install_requires=['click']
 )

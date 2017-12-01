@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from .packages import click
+import click
 from . import commands
 
 

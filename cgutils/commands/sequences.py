@@ -201,7 +201,7 @@ def rename(index, name, start):
         try:
             os.rename(old, new)
             click.echo('          {} --> {}'.format(old, new))
-        except:
+        except Exception:
             click.echo('##ERROR## {} --> {}'.format(old, new))
 
 

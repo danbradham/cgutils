@@ -70,9 +70,23 @@ def cli(search_str, replace_str, recursive=False):
 
     confirm_msg = 'Search for {} and replace with {}?'
     do_it = click.confirm(confirm_msg.format(search_str, replace_str))
+    if not do_it:
+        return
 
-    if do_it:
-        search_replace(search_str, replace_str, root=os.getcwd())
+    recursive_do_it = click.confirm(
+            'Recursive search and replace is dangerous, are you REALLY sure '
+            'you want to continue?'
+        )
+
+    if not recursive_do_it:
+        return
+
+    search_replace(
+        search_str,
+        replace_str,
+        root=os.getcwd(),
+        recursive=recursive
+    )
 
 
 if __name__ == '__main__':
