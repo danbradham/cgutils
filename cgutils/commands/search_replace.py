@@ -12,7 +12,7 @@ Usage::
 Here a file named new.01.exr in the current working directory would be renamed to old.01.exr.
 '''
 
-from ..packages import click
+import click
 import sys
 import os
 

@@ -49,7 +49,7 @@ import collections
 import errno
 import os
 import re
-from ..packages import click
+import click
 
 
 def get_sequences():
